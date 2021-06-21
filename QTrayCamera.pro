@@ -6,8 +6,8 @@ CONFIG += c++11
 
 
 #include(_windowshome.pri)
-include(_windowswork.pri)
-#include(_linuxhome.pri)
+#include(_windowswork.pri)
+include(_linuxhome.pri)
 #include(_linuxwork.pri)
 
 # The following define makes your compiler emit warnings if you use

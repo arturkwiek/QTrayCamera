@@ -67,7 +67,13 @@ Dialog::Dialog(QWidget *parent)
     ui->gvVideo->setScene(new QGraphicsScene(this));
     ui->gvVideo->scene()->addItem(&pixmapItem);
 
-        vcVideo.open(0);
+    vcVideo.open(0);
+
+    Qt::WindowFlags flags = 0;
+    flags |= Qt::WindowMaximizeButtonHint;
+    flags |= Qt::WindowCloseButtonHint;
+    flags |= Qt::WindowContextHelpButtonHint;
+    this->setWindowFlags( flags );
 
 }
 
@@ -76,7 +82,7 @@ Dialog::~Dialog()
     delete ui;
 }
 
-/* The method that handles click on the application icon in the system tray
+/* The method that handles click on the application icon MaximizeButtonHintin the system tray
  * */
 void Dialog::iconActivated(QSystemTrayIcon::ActivationReason reason)
 {
@@ -90,8 +96,9 @@ void Dialog::iconActivated(QSystemTrayIcon::ActivationReason reason)
              * Conversely, if hidden, it unfolds on the screen
              * */
         if(!this->isVisible()){
+            Qt::WindowFlags flags = windowFlags();
+            setWindowFlags(flags | Qt::WindowStaysOnTopHint);
             this->show();
-            this->win
         } else {
             this->hide();
         }
