@@ -37,19 +37,16 @@ Dialog::Dialog(QWidget *parent)
     QMenu * menu = new QMenu(this);
     QAction * viewWindow = new QAction(trUtf8("Развернуть окно"), this);
     QAction * quitAction = new QAction(trUtf8("Выход"), this);
-    QAction * someAction = new QAction(trUtf8("Coś tam"), this);
 
     /* connect the signals clicks on menu items to by appropriate slots.
      * The first menu item expands the application from the tray,
      * And the second menu item terminates the application
      * */
     connect(viewWindow, SIGNAL(triggered()), this, SLOT(show()));
-    connect(quitAction, SIGNAL(triggered()), this, SLOT(close()));
-    connect(someAction, SIGNAL(triggered()), this, SLOT(doSomething()));
+    connect(quitAction, SIGNAL(triggered()), this, SLOT(doSomething()));
     // ADD
     menu->addAction(viewWindow);
     menu->addAction(quitAction);
-    menu->addAction(someAction);
 
     /* Set the context menu on the icon
      * And show the application icon in the system tray
@@ -111,7 +108,10 @@ void Dialog::iconActivated(QSystemTrayIcon::ActivationReason reason)
 
 void Dialog::doSomething()
 {
-    qDebug() << "doSomething";
+    if(vcVideo.isOpened())
+        vcVideo.release();
+    qDebug() << "spadam stąd";
+    exit(0);
 }
 
 /* The method that handles the closing event of the application window
