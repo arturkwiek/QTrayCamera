@@ -46,6 +46,8 @@ public:
 
     VideoCapture vcVideo;
     Mat matFrame;
+    Mat prevFrame;
+    Mat diffFrame;
 
 protected:
     void closeEvent(QCloseEvent *event) override;
