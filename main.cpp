@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         if(sum(w.diffFrame)[0]/1000000 > 2) {
             bshowMax = true;
 
-//            w.show();
+            w.show();
 
             detection.sum_value = sum(w.diffFrame)[0]/1000000;
             w.matFrame.copyTo(detection.frame);
@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
                     }
                 }
             }
+            w.hide();
         }
 
         if(w.isVisible())
