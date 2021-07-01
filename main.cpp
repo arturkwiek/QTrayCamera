@@ -79,6 +79,8 @@ int main(int argc, char *argv[])
                     }
                 }
             }
+            while (vDetection.count())
+                 vDetection.takeLast();
             w.hide();
         }
 
