@@ -79,9 +79,11 @@ int main(int argc, char *argv[])
                     }
                 }
             }
+
             while (vDetection.count())
                  vDetection.takeLast();
-            w.hide();
+
+            qDebug() << "vDetection: " << vDetection.size();
         }
 
         if(w.isVisible())
