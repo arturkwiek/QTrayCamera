@@ -110,6 +110,7 @@ void Dialog::doSomething()
 {
     if(vcVideo.isOpened())
         vcVideo.release();
+    trayIcon->setVisible(false);
     qDebug() << "spadam stąd";
     exit(0);
 }
